@@ -30,9 +30,9 @@ services:
       - app_network
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
+      interval: 1s
       timeout: 5s
-      retries: 10
+      retries: 15
 
 networks:
   app_network:
