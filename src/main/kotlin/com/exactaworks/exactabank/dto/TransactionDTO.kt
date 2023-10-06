@@ -1,5 +1,6 @@
 package com.exactaworks.exactabank.dto
 
+import com.exactaworks.exactabank.extensions.toRealString
 import com.exactaworks.exactabank.model.TransactionType
 import com.fasterxml.jackson.annotation.JsonInclude
 import java.io.Serializable
@@ -9,12 +10,13 @@ import java.time.LocalDateTime
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class TransactionDTO(
-    val id: Long? = null,
-    val transactionType: TransactionType? = null,
-    val amount: BigDecimal? = null,
+    val id: Long,
+    val transactionType: TransactionType,
+    val amount: BigDecimal,
+    val amountFormatted: String = amount.toRealString(),
     val agencyNumber: Int? = null,
-    val dateTime: LocalDateTime? = null,
-    val operation: OperationType? = null
+    val dateTime: LocalDateTime,
+    val operation: OperationType
 ) : Serializable
 
 enum class OperationType {

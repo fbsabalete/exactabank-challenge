@@ -47,11 +47,11 @@ class TransactionService(
             pageable = pageable
         )
             .map { TransactionDTO(
-                id = it.id,
+                id = it.id!!,
                 transactionType = it.transactionType,
                 amount = it.amount,
                 agencyNumber = it.agencyNumber,
-                dateTime = it.dateTime,
+                dateTime = it.dateTime!!,
                 operation =
                 if(it.targetAccount?.id == id || it.transactionType == TransactionType.DEPOSIT)
                     OperationType.CREDIT
