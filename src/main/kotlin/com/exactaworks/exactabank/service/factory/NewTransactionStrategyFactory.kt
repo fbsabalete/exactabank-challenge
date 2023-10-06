@@ -3,7 +3,6 @@ package com.exactaworks.exactabank.service.factory
 import com.exactaworks.exactabank.model.TransactionType
 import com.exactaworks.exactabank.service.strategy.TransactionStrategy
 import org.springframework.stereotype.Component
-import java.lang.IllegalArgumentException
 
 @Component
 class NewTransactionStrategyFactory(transactionStrategies: List<TransactionStrategy>) {

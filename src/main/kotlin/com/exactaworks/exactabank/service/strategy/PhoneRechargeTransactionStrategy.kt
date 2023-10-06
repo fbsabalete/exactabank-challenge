@@ -6,7 +6,6 @@ import com.exactaworks.exactabank.dto.TransactionRequest
 import com.exactaworks.exactabank.model.Transaction
 import com.exactaworks.exactabank.model.TransactionType
 import com.exactaworks.exactabank.service.AccountService
-import com.exactaworks.exactabank.service.TransactionService
 import org.springframework.stereotype.Service
 
 @Service

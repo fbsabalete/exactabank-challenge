@@ -5,9 +5,7 @@ import com.exactaworks.exactabank.model.Account
 import com.exactaworks.exactabank.model.Transaction
 import com.exactaworks.exactabank.model.TransactionType
 import com.exactaworks.exactabank.service.AccountService
-import com.exactaworks.exactabank.service.TransactionService
 import org.springframework.stereotype.Service
-import java.lang.IllegalArgumentException
 
 @Service
 class PixTransactionStrategy(
