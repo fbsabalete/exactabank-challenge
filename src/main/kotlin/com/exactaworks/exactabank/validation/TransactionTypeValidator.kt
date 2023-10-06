@@ -1,8 +1,8 @@
 package com.exactaworks.exactabank.validation
 
 import com.exactaworks.exactabank.dto.TransactionRequest
-import com.exactaworks.exactabank.dto.ValidTransactionType
 import com.exactaworks.exactabank.model.TransactionType
+import com.exactaworks.exactabank.validation.annotation.ValidTransactionType
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl
