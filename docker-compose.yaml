@@ -1,10 +1,22 @@
 version: '3.1'
 
 services:
-  db:
+  app:
+    image: fbsabalete/account-transactions:1.0.0
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: mysql_db
+    networks:
+      - app_network
+    depends_on:
+      mysql_db:
+          condition: service_healthy
+    ports:
+      - '8080:8080'
+  mysql_db:
     image: mysql:8.0.32
     restart: always
-    container_name: exacta
     environment:
       MYSQL_DATABASE: 'exactabank'
       MYSQL_USER: 'user'
@@ -14,3 +26,13 @@ services:
       - '3306:3306'
     expose:
       - '3306'
+    networks:
+      - app_network
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+networks:
+  app_network:
