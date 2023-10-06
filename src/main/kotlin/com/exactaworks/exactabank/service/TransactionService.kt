@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDate
 
 @Service
 class TransactionService(
@@ -31,8 +32,20 @@ class TransactionService(
         transactionRepository.save(transaction)
     }
 
-    fun findTransactions(id: Long, type: TransactionType? = null, pageable: Pageable) : Page<TransactionDTO> {
-        return transactionRepository.findByAccountIdAndTypeOrderByDateTimeDesc(id, type, pageable)
+    fun findTransactions(
+        id: Long,
+        type: TransactionType? = null,
+        fromDate: LocalDate? = null,
+        toDate: LocalDate? = null,
+        pageable: Pageable
+    ) : Page<TransactionDTO> {
+        return transactionRepository.findByAccountIdAndTypeOrderByDateTimeDesc(
+            id = id,
+            type = type,
+            fromDate = fromDate,
+            toDate = toDate,
+            pageable = pageable
+        )
             .map { TransactionDTO(
                 id = it.id,
                 transactionType = it.transactionType,

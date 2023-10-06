@@ -1,6 +1,6 @@
 package com.exactaworks.exactabank.dto
 
-class PhoneCreditApiRequest(
+data class PhoneCreditApiRequest(
     val phoneNumber: String
 ) {
 

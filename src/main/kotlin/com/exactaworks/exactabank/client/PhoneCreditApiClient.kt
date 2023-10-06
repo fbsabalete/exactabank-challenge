@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody
 interface PhoneCreditApiClient {
 
     @PostMapping
-    fun rechargePhone(@RequestBody request: PhoneCreditApiRequest)
+    fun rechargePhone(@RequestBody request: PhoneCreditApiRequest) : ResponseEntity<Void>
 
 }

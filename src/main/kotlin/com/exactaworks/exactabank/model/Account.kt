@@ -6,7 +6,7 @@ import java.math.BigDecimal
 
 @Entity
 class Account(
-    @Column(name = "ID") @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long,
+    @Column(name = "ID") @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null,
     @Column(name = "BALANCE") var balance: BigDecimal,
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY) var pixKeys : List<PixKey>
 ) {

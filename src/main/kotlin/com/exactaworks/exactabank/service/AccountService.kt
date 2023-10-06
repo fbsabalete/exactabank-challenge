@@ -1,5 +1,6 @@
 package com.exactaworks.exactabank.service
 
+import com.exactaworks.exactabank.dto.AccountSummaryDTO
 import com.exactaworks.exactabank.dto.PageMetaData
 import com.exactaworks.exactabank.dto.PageResponse
 import com.exactaworks.exactabank.dto.TransactionDTO
@@ -54,7 +55,7 @@ class AccountService(
     }
 
     private fun updateBalance(account: Account, newBalance : BigDecimal) {
-        accountRepository.updateBalanceById(id = account.id, balance = newBalance)
+        accountRepository.updateBalanceById(id = account.id!!, balance = newBalance)
     }
 
 }

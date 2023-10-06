@@ -1,6 +1,5 @@
-package com.exactaworks.exactabank.service
+package com.exactaworks.exactabank.dto
 
-import com.exactaworks.exactabank.dto.TransactionDTO
 import java.io.Serializable
 import java.math.BigDecimal
 

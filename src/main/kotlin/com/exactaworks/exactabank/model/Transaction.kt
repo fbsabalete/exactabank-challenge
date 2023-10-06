@@ -2,10 +2,8 @@ package com.exactaworks.exactabank.model
 
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
-import org.springframework.data.annotation.CreatedDate
 import java.math.BigDecimal
-import java.time.Instant
-import java.time.ZonedDateTime
+import java.time.LocalDateTime
 
 @Entity
 class Transaction(
@@ -15,7 +13,7 @@ class Transaction(
     @Enumerated(EnumType.STRING) @Column(name = "TRANSACTION_TYPE") var transactionType: TransactionType,
     @Column(name = "AMOUNT") var amount : BigDecimal,
     @Column(name = "AGENCY_NUMBER") var agencyNumber: Int? = null,
-    @Column(name = "TRANSACTION_DATE_TIME") @CreationTimestamp var dateTime: Instant? = null
+    @Column(name = "TRANSACTION_DATE_TIME") @CreationTimestamp var dateTime: LocalDateTime? = null
 )
 
 enum class TransactionType {

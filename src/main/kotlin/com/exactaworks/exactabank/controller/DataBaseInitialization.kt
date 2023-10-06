@@ -6,16 +6,16 @@ import com.exactaworks.exactabank.model.PixKeyType
 import com.exactaworks.exactabank.repository.AccountRepository
 import com.exactaworks.exactabank.repository.PixKeyRepository
 import org.springframework.boot.CommandLineRunner
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
 @Component
+@ConditionalOnProperty(value = ["populate-db"], havingValue = "true", matchIfMissing = false)
 class DataBaseInitialization(
     private val accountRepository: AccountRepository,
     private val pixKeyRepository: PixKeyRepository
 ) : CommandLineRunner {
-
-
 
     override fun run(vararg args: String?) {
         val account1 = accountRepository.save(Account(1L, BigDecimal("100"), listOf()))

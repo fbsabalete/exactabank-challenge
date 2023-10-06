@@ -1,8 +1,8 @@
 package com.exactaworks.exactabank.controller
 
+import com.exactaworks.exactabank.dto.AccountSummaryDTO
 import com.exactaworks.exactabank.dto.PageResponse
 import com.exactaworks.exactabank.service.AccountService
-import com.exactaworks.exactabank.service.AccountSummaryDTO
 import org.springdoc.core.annotations.ParameterObject
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault

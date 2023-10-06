@@ -27,14 +27,14 @@ import java.math.BigDecimal
 data class TransactionRequest(
     @field:NotNull
     var accountId: Long?,
-    var pixKey: String?,
-    var pixKeyType : PixKeyType?,
+    var pixKey: String? = null,
+    var pixKeyType : PixKeyType? = null,
     @field:NotNull
     var transactionType: TransactionType?,
     @field:NotNull
     var amount: BigDecimal?,
-    var agencyNumber : Int?,
-    var phoneNumber: String?
+    var agencyNumber : Int? = null,
+    var phoneNumber: String? = null
 ) {
 
 }
