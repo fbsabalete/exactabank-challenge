@@ -1,6 +1,7 @@
 package com.exactaworks.exactabank.service.strategy
 
 import com.exactaworks.exactabank.dto.TransactionRequest
+import com.exactaworks.exactabank.exception.ValidationException
 import com.exactaworks.exactabank.model.Account
 import com.exactaworks.exactabank.model.Transaction
 import com.exactaworks.exactabank.model.TransactionType
@@ -16,7 +17,7 @@ class PixTransactionStrategy(
             accountService.findByPixTypeAndKey(request.pixKeyType!!, request.pixKey!!)
         val sourceAccount = accountService.findById(request.accountId!!)
         if(targetAccount.id == sourceAccount.id) {
-            throw IllegalArgumentException("Can't transfer to same account")
+            throw ValidationException("Can't transfer to same account")
         }
 
         val transactionAmount = request.amount!!

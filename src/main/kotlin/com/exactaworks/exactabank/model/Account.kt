@@ -1,6 +1,6 @@
 package com.exactaworks.exactabank.model
 
-import com.exactaworks.exactabank.exception.InsufficientBalanceException
+import com.exactaworks.exactabank.exception.ValidationException
 import jakarta.persistence.*
 import java.math.BigDecimal
 
@@ -13,7 +13,7 @@ class Account(
 
     fun verifyBalance(amountToDecrement : BigDecimal) {
         if(balance.compareTo(amountToDecrement) < 0) {
-            throw InsufficientBalanceException("Account does not have enough balance to execute transaction")
+            throw ValidationException("Account does not have enough balance to execute transaction")
         }
     }
 }
